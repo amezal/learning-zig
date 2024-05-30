@@ -2,11 +2,12 @@ const std = @import("std");
 const user = @import("./models/user.zig");
 
 pub fn main() void {
-    const goku = user.User{
-        .name = "goku",
-        .power = 9001,
-    };
+    const sum = add(8999, 2);
+    std.debug.print("8999 + 2 = {d}\n", .{sum});
+}
 
-    std.debug.print("{s}'s power is {d}\n", .{ goku.name, goku.power });
-    std.debug.print("{d}", .{user.xd});
+fn add(a: i64, b: i64) i64 {
+    var sum = a;
+    sum += b;
+    return sum;
 }
