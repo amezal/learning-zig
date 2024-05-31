@@ -11,6 +11,11 @@ pub const User = struct {
             std.debug.print("It's over {d}!!!!\n", .{SUPER_POWER});
         }
     }
+
+    pub fn init(name: []const u8, power: u64) User {
+        std.debug.print("User created\n");
+        return .{ .name = name, .power = power };
+    }
 };
 
 pub const xd = 4;
