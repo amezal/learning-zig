@@ -24,4 +24,16 @@ pub fn main() void {
     // Fails because we're casting from a *const u8 (a_ptr) to a *u8 (c_ptr = b_ptr).
     // Which means going from more restrictive to less restrictive.
     std.debug.print("c: {}, typeof c_ptr: {}\n\n", .{ c_ptr.*, @TypeOf(c_ptr) });
+
+    // Multi-item pointers
+
+    var array = [_]u8{ 1, 2, 3, 4, 5, 6 };
+    var d_ptr: [*]u8 = &array;
+
+    std.debug.print("d_ptr[0]: {}, typeof d_ptr: {}\n", .{ d_ptr[0], @TypeOf(d_ptr) });
+    // d_ptr[1] += 1;
+    d_ptr += 1;
+    std.debug.print("d_ptr[0]: {}, typeof d_ptr: {}\n", .{ d_ptr[0], @TypeOf(d_ptr) });
+    d_ptr -= 4000;
+    std.debug.print("d_ptr[0]: {}, typeof d_ptr: {}\n", .{ d_ptr[0], @TypeOf(d_ptr) });
 }
