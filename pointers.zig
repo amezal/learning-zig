@@ -35,5 +35,13 @@ pub fn main() void {
     d_ptr += 1;
     std.debug.print("d_ptr[0]: {}, typeof d_ptr: {}\n", .{ d_ptr[0], @TypeOf(d_ptr) });
     d_ptr -= 4000;
-    std.debug.print("d_ptr[0]: {}, typeof d_ptr: {}\n", .{ d_ptr[0], @TypeOf(d_ptr) });
+    std.debug.print("d_ptr[0]: {}, typeof d_ptr: {}\n\n", .{ d_ptr[0], @TypeOf(d_ptr) });
+
+    // Pointers to arrays
+    const e_ptr = &array;
+    std.debug.print("e_ptr[0]: {}, typeof e_ptr: {}\n", .{ e_ptr[0], @TypeOf(e_ptr) });
+    e_ptr[1] += 1;
+    std.debug.print("e_ptr[1]: {}, typeof e_ptr: {}\n", .{ e_ptr[1], @TypeOf(e_ptr) });
+    std.debug.print("array[1]: {}\n", .{array[2]});
+    std.debug.print("e_ptr.len: {}\n\n", .{e_ptr.len});
 }
