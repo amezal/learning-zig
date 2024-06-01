@@ -44,4 +44,9 @@ pub fn main() void {
     std.debug.print("e_ptr[1]: {}, typeof e_ptr: {}\n", .{ e_ptr[1], @TypeOf(e_ptr) });
     std.debug.print("array[1]: {}\n", .{array[2]});
     std.debug.print("e_ptr.len: {}\n\n", .{e_ptr.len});
+
+    // Sentinel terminated pointer.
+    array[3] = 0;
+    const f_ptr: [*:0]const u8 = array[0..3 :0];
+    std.debug.print("f_ptr[1]: {}, typeof f_ptr: {}\n\n", .{ f_ptr[1], @TypeOf(f_ptr) });
 }
