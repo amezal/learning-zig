@@ -46,6 +46,30 @@ pub fn main() void {
     // Execute while loop
     // executeWhileLoop();
 
+    outer: for (1..10) |i| {
+        for (i..10) |j| {
+            if (i * j > (i + i + j + j)) continue :outer;
+            // std.debug.print("{d} + {d} >= {d} * {d}\n", .{ i + i, j + j, i, j });
+        }
+    }
+
+    const tea_vote = 2;
+    const coffee_vote = 5;
+
+    const personality_analysis = blk: {
+        if (tea_vote > coffee_vote) break :blk "sane";
+        if (tea_vote == coffee_vote) break :blk "whatever";
+        if (tea_vote < coffee_vote) break :blk "dangerous";
+    };
+
+    std.debug.print("Personality: {s}\n", .{personality_analysis});
+
+    for (1..10) |i| {
+        if (i % 2 == 0) continue;
+        if (i == 5) break;
+        std.debug.print("{d}, ", .{i});
+    }
+    std.debug.print("\n", .{});
 }
 
 // While loops
