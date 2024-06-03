@@ -42,6 +42,38 @@ pub fn main() void {
     for (0..10) |i| {
         std.debug.print("{d}\n", .{i});
     }
+
+    // Execute while loop
+    // executeWhileLoop();
+
+}
+
+// While loops
+fn executeWhileLoop() void {
+
+    // While loops
+    const src = "/asdf\\e\\b\\c";
+    var escape_count: usize = 0;
+    {
+        var i: usize = 0;
+        while (i < src.len) {
+            if (src[i] == '\\') {
+                i += 2;
+                escape_count += 1;
+            } else {
+                i += 1;
+            }
+        }
+    }
+
+    var i: usize = 0;
+    while (i < src.len) : (i += 1) {
+        if (src[i] == '\\') {
+            i += 1;
+            escape_count += 1;
+        }
+    }
+    std.debug.print("Escape Count: {d}\n", .{escape_count});
 }
 
 // Switch
